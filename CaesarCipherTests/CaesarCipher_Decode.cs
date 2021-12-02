@@ -9,7 +9,8 @@ namespace CaesarCipherTests
         [TestCase("QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD", 23, "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG")]
         [TestCase("b-Bb-B", 1, "a-Aa-A")]
         [TestCase("qqq", 3000000, "aaa")]
-        public void CaesarCipherDecode_ShiftIsPositive_ReturnRightShifted(string text, int shift, string expected)
+        [TestCase("がぎぐげご", 1, "かきくけこ")]
+        public void CaesarCipherDecode_ShiftIsPositive_ReturnRightUnshifted(string text, int shift, string expected)
         {
             string result = CaesarCipher.Decode(text, shift);
 
@@ -27,7 +28,7 @@ namespace CaesarCipherTests
 
         [TestCase("SGD PTHBJ AQNVM ENW ITLOR NUDQ SGD KZYX CNF", -1, "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG")]
         [TestCase("~`!1@2#3$4%5^6&7*8(9)0_-+=zab", -27, "~`!1@2#3$4%5^6&7*8(9)0_-+=abc")]
-        public void CaesarCipherDecode_ShiftIsNegative_ReturnLeftShifted(string text, int shift, string expected)
+        public void CaesarCipherDecode_ShiftIsNegative_ReturnLeftUnshifted(string text, int shift, string expected)
         {
             string result = CaesarCipher.Decode(text, shift);
 

@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Encryption;
 
 namespace CaesarCipherTests
@@ -9,6 +9,7 @@ namespace CaesarCipherTests
         [TestCase("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG", 23, "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD")]
         [TestCase("a-Aa-A", 1, "b-Bb-B")]
         [TestCase("aaa", 3000000, "qqq")]
+        [TestCase("かきくけこ", 1, "がぎぐげご")]
         public void CaesarCipherEncode_ShiftIsPositive_ReturnRightShifted(string text, int shift, string expected)
         {
             string result = CaesarCipher.Encode(text, shift);
